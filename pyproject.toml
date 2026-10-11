@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=77.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hotkv-mcp"
+version = "1.0.0"
+description = "A Model Context Protocol (MCP) server for HotKV, a RESP2/RESP3-compatible in-memory data store with built-in AI and LLM-serving features. Lets AI agents read and write keys, agent memory, prompts and RAG documents."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+authors = [
+    { name = "HotKV Ltd", email = "support@hotkv.com" },
+]
+maintainers = [
+    { name = "HotKV Ltd", email = "support@hotkv.com" },
+]
+keywords = ["hotkv", "mcp", "model-context-protocol", "ai", "agents", "llm", "key-value", "memory"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Database",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Typing :: Typed",
+]
+dependencies = [
+    "hotkv-client>=1.0.0,<2",
+    "mcp>=1.12",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "build>=1.0",
+]
+
+[project.urls]
+Homepage = "https://hotkv.com"
+Documentation = "https://docs.hotkv.com"
+Source = "https://github.com/hotkv-ltd/hotkv-mcp"
+Issues = "https://github.com/hotkv-ltd/hotkv-mcp/issues"
+
+[project.scripts]
+hotkv-mcp = "hotkv_mcp.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+hotkv_mcp = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
